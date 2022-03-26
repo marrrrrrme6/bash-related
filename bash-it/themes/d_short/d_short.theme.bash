@@ -1,5 +1,6 @@
 FILTER() {
-    sed \
+    sed -z 's/\n\(.*\)//' \
+    |sed \
     -e 's/\\\$/$/g' \
     -e 's/\\\n/\n/g' \
     -e 's/\\A/%H:%M/g' \
@@ -15,7 +16,7 @@ d_short_prompt() {
     d_short() {
         DIR=$(pwd | sed "s|$HOME|~|g")
         PROMPT_WIDTH=$(echo -e "$PS1" |FILTER |xargs)
-        WIDTH=$(($(tput cols)-${#PROMPT_WIDTH}+2))
+        WIDTH=$(($(tput cols)-${#PROMPT_WIDTH}))
         if  [ ${#DIR} -gt ${WIDTH} ] ;then
             echo "...${DIR: -$WIDTH}"
         else
