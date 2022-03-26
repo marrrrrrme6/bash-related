@@ -8,5 +8,5 @@ d_short() {
     else
         echo $DIR
     fi
-    PS1="$PS1"
 }
+PS1="$PS1"
