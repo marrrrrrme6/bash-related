@@ -1,6 +1,7 @@
 PS1='[\e[01;32m\u@\h\e[00m \D{%FT %T} :\e[01;34m$(d_short)\e[00m]\n\$ '
 FILTER='sed -e "s/\\\u/$(whoami)/g" \
--e "s/\\\h/$(hostname)/g" -e 's/$(d_short)/.../g' \
+-e "s/\\\h/$(hostname)/g" \
+-e 's/$(d_short)/.../g' \
 -e 's/[\\\t\\\T\\\@]/......../g' \
 -e 's/\\\A/...../g' \
 -e 's/\\\$/\$/g' \
