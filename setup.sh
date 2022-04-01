@@ -57,7 +57,7 @@ chsh -s bash
 python3 -m pip install -U pip
 python3 -m pip install -U youtube_dl
 cat <<EOF >.config/youtube-dl/config
--o "%(title)s (by %(uploader)s).%(ext)s" -R infinite --external-downloader aria2c --external-downloader-args "-c -j16 -x16 -s16 -m0 -k1M"
+-f bestvideo+bestaudio -o "%(title)s (by %(uploader)s).%(ext)s" -R infinite --external-downloader aria2c --external-downloader-args "-c -j16 -x16 -s16 -m0 -k1M"
 EOF
 
 adduser marme
