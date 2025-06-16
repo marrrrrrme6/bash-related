@@ -12,7 +12,7 @@ FILTER() {
     |sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})*)?m//g" 
 }
 d_short_prompt() {
-    PS1='[\e[01;32m\u@\h\e[00m \D{%FT %T} :\e[01;34m$(d_short)\e[00m]\n\$ '
+    PS1='[\e[01;32m\u@\h\e[00m \D{%FT %T} :\e[01;34m$(d_short)\e[00m]\n${VIRTUAL_ENV_PROMPT}\$ '
     d_short() {
         DIR=$(pwd | sed "s|$HOME|~|g")
         PROMPT_WIDTH=$(echo -e "$PS1" |FILTER |xargs)
